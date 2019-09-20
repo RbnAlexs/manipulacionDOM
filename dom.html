@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>DOM</title>
+    </head>
+    <body>
+        <form action="post.php" id="formulario" name="elFormulario">
+            <label for="campo" id="etiqCampo">Campo de texto:</label>
+            <input id="inputTexto" type="text" name="campo" size="40">
+        </form>
+        <script>
+            var sign = prompt("What's your sign?");
+
+            console.log('El action de este formulario es:'+document.forms[0].action);
+            //document.forms[0].elements[0].value = "Hola a todos"
+            //document.forms[0].campo.value = "Hola a todos"
+            document.forms.elFormulario.campo.value = "Hola Mundo"
+
+            document.getElementById('etiqCampo').textContent = "Pregunta!:"
+
+            document.getElementById('etiqCampo').addEventListener('click', cambiarFoco);
+
+            function cambiarFoco(){
+                //document.getElementById('formulario').campo.focus();
+                document.forms.elFormulario.campo.focus();
+            }
+
+            document.getElementById('inputTexto').addEventListener('keyup', function(){
+                //console.log('Lo que esta escrito en el input es: ', document.forms.elFormulario.campo.value)
+                //console.log('Lo que esta escrito en el input es:  ', document.getElementById('inputTexto').value);
+                console.log('Lo que esta escrito en el input es: ', this.value)
+            })
+
+
+
+
+        </script>
+    </body>
+</html>
